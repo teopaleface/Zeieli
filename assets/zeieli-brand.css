@@ -299,6 +299,20 @@ footer .menu__heading__default {
   color: var(--zeieli-bg);
 }
 
+footer .section .text-block,
+footer .section .text-block > *,
+footer .section .text-block h1,
+footer .section .text-block h2,
+footer .section .text-block h3,
+footer .section .text-block h4,
+footer .section .text-block h5,
+footer .section .text-block h6,
+footer .section .text-block p {
+  --color: var(--zeieli-bg);
+  --color-foreground: var(--zeieli-bg);
+  color: var(--zeieli-bg);
+}
+
 footer input {
   background: rgba(255, 253, 249, 0.08);
   border-color: rgba(255, 253, 249, 0.45);
