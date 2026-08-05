@@ -105,8 +105,8 @@
     "color_palette": {
       "background": "#F8F3EB",
       "foreground": "#1E3A4C",
-      "color1": "#A84634",
-      "color2": "#D69B3B"
+      "color1": "#1E3A4C",
+      "color2": "#A84634"
     }
   },
   "presets": {
@@ -207,8 +207,8 @@
       "color_palette": {
         "background": "#F8F3EB",
         "foreground": "#1E3A4C",
-        "color1": "#A84634",
-        "color2": "#D69B3B"
+        "color1": "#1E3A4C",
+        "color2": "#A84634"
       }
     }
   }

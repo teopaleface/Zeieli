@@ -15,7 +15,7 @@
           "type": "disclosures",
           "name": "t:names.disclosures",
           "settings": {
-            "heading": "Disclosures",
+            "heading": "Informații",
             "heading_preset": "h5",
             "open_by_default": false,
             "icon": "caret",
@@ -298,6 +298,81 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "zeieli_product_info": {
+              "type": "accordion",
+              "name": "Zeieli — informații produs",
+              "settings": {
+                "icon": "caret",
+                "dividers": true,
+                "divider_color": "{{ settings.color_palette.color2 }}",
+                "type_preset": "h6",
+                "background_color": "",
+                "text_color": "",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "zeieli_size_row": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Ghid de mărimi",
+                    "open_by_default": false,
+                    "icon": "ruler"
+                  },
+                  "blocks": {
+                    "text": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Compară bustul, talia și șoldul cu tabelul orientativ înainte de comandă. Între două mărimi, pornește de la măsura mai mare pentru un plus de confort.</p><p><a href=\"/pages/ghid-marimi\">Vezi ghidul complet de mărimi</a></p>"
+                      }
+                    }
+                  },
+                  "block_order": ["text"]
+                },
+                "zeieli_delivery_row": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Livrare și retur",
+                    "open_by_default": false,
+                    "icon": "return"
+                  },
+                  "blocks": {
+                    "text": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Costul livrării și condițiile de retur sunt afișate înainte de finalizarea comenzii. Pentru ajutor, scrie-ne din pagina de contact.</p>"
+                      }
+                    }
+                  },
+                  "block_order": ["text"]
+                },
+                "zeieli_care_row": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Îngrijirea produsului",
+                    "open_by_default": false,
+                    "icon": "iron"
+                  },
+                  "blocks": {
+                    "text": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Urmează instrucțiunile de pe eticheta produsului. Compoziția și recomandările de îngrijire pot diferi de la un model la altul.</p>"
+                      }
+                    }
+                  },
+                  "block_order": ["text"]
+                }
+              },
+              "block_order": ["zeieli_size_row", "zeieli_delivery_row", "zeieli_care_row"]
             }
           },
           "block_order": [
@@ -305,7 +380,8 @@
             "divider_VJhene",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
-            "text_aEtTtq"
+            "text_aEtTtq",
+            "zeieli_product_info"
           ]
         }
       },
@@ -331,7 +407,7 @@
           "type": "text",
           "name": "t:names.header",
           "settings": {
-            "text": "<h3>You may also like </h3>",
+            "text": "<h3>S-ar putea să-ți placă</h3>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",

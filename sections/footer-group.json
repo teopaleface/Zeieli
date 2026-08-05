@@ -96,11 +96,36 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "text_size_guide": {
+              "type": "text",
+              "settings": {
+                "text": "<p><a href=\"/pages/ghid-marimi\">Ghid de mărimi</a></p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
             }
           },
           "block_order": [
             "text_LWt8Pz",
-            "text_f9CFLH"
+            "text_f9CFLH",
+            "text_size_guide"
           ]
         },
         "email_signup_crihX7": {
@@ -112,7 +137,7 @@
             "border_style": "all",
             "input_style": "custom",
             "border_width": 1,
-            "border_radius": 100,
+            "border_radius": 3,
             "input_background_color": "{{ settings.color_palette.background }}",
             "input_text_color": "{{ settings.color_palette.color1 }}",
             "input_border_color": "{{ settings.color_palette.color2 }}",
@@ -149,7 +174,7 @@
         "footer_copyright_jweRK8": {
           "type": "footer-copyright",
           "settings": {
-            "show_powered_by": true,
+            "show_powered_by": false,
             "font_size": "0.75rem",
             "case": "none"
           },

@@ -1,0 +1,17 @@
+{
+  "sections": {
+    "zeieli-size-guide": {
+      "type": "zeieli-size-guide",
+      "settings": {
+        "eyebrow": "Ghid de mărimi",
+        "heading": "Alege după măsurători reale.",
+        "intro": "Ține centimetrul paralel cu podeaua și compară valorile cu tabelul potrivit modelului ales. Între două mărimi, pornește de la măsura mai mare pentru un plus de confort.",
+        "button_label": "Vezi colecția",
+        "button_link": "/collections/all"
+      }
+    }
+  },
+  "order": [
+    "zeieli-size-guide"
+  ]
+}

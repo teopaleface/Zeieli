@@ -1,0 +1,131 @@
+<section class="zeieli-size-guide" aria-labelledby="ZeieliSizeGuide-{{ section.id }}">
+  <div class="zeieli-size-guide__inner">
+    <div class="zeieli-size-guide__intro">
+      <div>
+        <p class="zeieli-size-guide__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        <h1 id="ZeieliSizeGuide-{{ section.id }}">{{ section.settings.heading | escape }}</h1>
+      </div>
+      <p class="zeieli-size-guide__intro-copy">{{ section.settings.intro | escape }}</p>
+    </div>
+
+    <div class="zeieli-size-guide__steps" aria-label="Cum te măsori">
+      <div class="zeieli-size-guide__step">
+        <strong>1. Bust</strong>
+        <span>Măsoară în jurul zonei celei mai proeminente, cu centimetrul paralel cu podeaua.</span>
+      </div>
+      <div class="zeieli-size-guide__step">
+        <strong>2. Talie</strong>
+        <span>Măsoară talia naturală fără să strângi banda și stând relaxată.</span>
+      </div>
+      <div class="zeieli-size-guide__step">
+        <strong>3. Șold</strong>
+        <span>Măsoară în jurul celei mai late zone și compară cu tabelul potrivit modelului.</span>
+      </div>
+    </div>
+
+    <div class="zeieli-size-guide__table-wrap">
+      <h2>Rochii și compleuri</h2>
+      <p>Alege mărimea după cea mai mare dintre cele trei măsurători.</p>
+      <table>
+        <caption class="visually-hidden">Măsurători corporale orientative pentru rochii și compleuri</caption>
+        <thead>
+          <tr>
+            <th scope="col">Mărime</th>
+            <th scope="col">Bust (cm)</th>
+            <th scope="col">Talie (cm)</th>
+            <th scope="col">Șold (cm)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">M</th><td>92–96</td><td>76–80</td><td>100–104</td></tr>
+          <tr><th scope="row">L</th><td>96–102</td><td>80–86</td><td>104–110</td></tr>
+          <tr><th scope="row">XL</th><td>102–108</td><td>86–92</td><td>110–116</td></tr>
+          <tr><th scope="row">2XL</th><td>108–116</td><td>92–100</td><td>116–124</td></tr>
+          <tr><th scope="row">3XL</th><td>116–124</td><td>100–108</td><td>124–132</td></tr>
+          <tr><th scope="row">4XL</th><td>124–132</td><td>108–116</td><td>132–140</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="zeieli-size-guide__table-wrap">
+      <h2>Pantaloni și compleuri cu fustă/pantalon</h2>
+      <p>Pentru croieli cu talie elastică, verifică și nota produsului înainte de alegere.</p>
+      <table>
+        <caption class="visually-hidden">Măsurători corporale orientative pentru pantaloni</caption>
+        <thead>
+          <tr>
+            <th scope="col">Mărime</th>
+            <th scope="col">Talie (cm)</th>
+            <th scope="col">Șold (cm)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">S</th><td>68–72</td><td>92–96</td></tr>
+          <tr><th scope="row">M</th><td>72–76</td><td>96–100</td></tr>
+          <tr><th scope="row">L</th><td>76–82</td><td>100–106</td></tr>
+          <tr><th scope="row">XL</th><td>82–88</td><td>106–112</td></tr>
+          <tr><th scope="row">2XL</th><td>88–96</td><td>112–120</td></tr>
+          <tr><th scope="row">3XL</th><td>96–104</td><td>120–128</td></tr>
+          <tr><th scope="row">4XL</th><td>104–112</td><td>128–136</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="zeieli-size-guide__note">
+      <strong>Important:</strong> valorile sunt măsurători corporale orientative, nu dimensiuni ale produsului întins.
+      Croiala, elasticitatea și mărimile disponibile pot diferi de la un model la altul; verifică întotdeauna nota de pe pagina produsului.
+    </p>
+
+    {% if section.settings.button_label != blank %}
+      <p>
+        <a class="button" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">
+          {{ section.settings.button_label | escape }}
+        </a>
+      </p>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Zeieli — ghid de mărimi",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Etichetă",
+      "default": "Ghid de mărimi"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titlu",
+      "default": "Alege după măsurători reale."
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Introducere",
+      "default": "Ține centimetrul paralel cu podeaua și compară valorile cu tabelul potrivit modelului ales. Între două mărimi, pornește de la măsura mai mare pentru un plus de confort."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Text buton",
+      "default": "Vezi colecția"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Link buton"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ghid de mărimi Zeieli"
+    }
+  ]
+}
+{% endschema %}

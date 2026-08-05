@@ -1,9 +1,8 @@
 /*
  * ZEIELI Romania layer
  *
- * Warm Romanian countryside, contemporary ie-inspired details and a direct
- * retail layout. This replaces the primary/secondary Lego-like contrast with
- * terracotta, Romanian blue, ochre and paper tones.
+ * Romanian everyday fashion with a direct, affordable retail layout. The
+ * visual system stays intentionally flat: paper, blue, terracotta and ink.
  */
 :root {
   --zeieli-paper: #f8f3eb;
@@ -11,8 +10,6 @@
   --zeieli-terracotta: #a84634;
   --zeieli-terracotta-dark: #813426;
   --zeieli-blue: #1e3a4c;
-  --zeieli-ochre: #d69b3b;
-  --zeieli-forest: #55664e;
   --zeieli-ink: #26221e;
   --zeieli-line: #d8c8b4;
   --zeieli-display: 'Trebuchet MS', Arial, Helvetica, sans-serif;
@@ -49,7 +46,7 @@ a {
 }
 
 :focus-visible {
-  outline: 3px solid var(--zeieli-ochre);
+  outline: 3px solid var(--zeieli-terracotta);
   outline-offset: 3px;
 }
 
@@ -119,7 +116,7 @@ a {
 
 .zeieli-hero {
   background: var(--zeieli-blue);
-  border-bottom: 7px solid var(--zeieli-ochre);
+  border-bottom: 4px solid var(--zeieli-terracotta);
   display: block;
   margin: 0;
   max-width: none;
@@ -224,16 +221,16 @@ a {
 .button-custom,
 button.shopify-payment-button__button--unbranded {
   background: var(--zeieli-terracotta) !important;
-  border: 2px solid var(--zeieli-paper) !important;
+  border: 1px solid var(--zeieli-terracotta-dark) !important;
   border-radius: 3px !important;
-  box-shadow: 3px 3px 0 var(--zeieli-ochre);
+  box-shadow: none;
   color: var(--zeieli-paper) !important;
   font-family: var(--zeieli-body);
   font-weight: 800;
   min-height: 3.1rem;
   padding-inline: 1.4rem;
   text-transform: uppercase;
-  transition: box-shadow 120ms ease-out, transform 120ms ease-out, background-color 120ms ease-out;
+  transition: transform 120ms ease-out, background-color 120ms ease-out;
 }
 
 .zeieli-hero__button:hover,
@@ -241,9 +238,8 @@ button.shopify-payment-button__button--unbranded {
 .button-secondary:hover,
 .button-custom:hover {
   background: var(--zeieli-terracotta-dark) !important;
-  box-shadow: 5px 5px 0 var(--zeieli-ochre);
   color: var(--zeieli-paper) !important;
-  transform: translate(-2px, -2px);
+  transform: translateY(-1px);
 }
 
 .zeieli-hero__secondary-link {
@@ -259,8 +255,8 @@ button.shopify-payment-button__button--unbranded {
 }
 
 .zeieli-hero__secondary-link:hover {
-  border-color: var(--zeieli-ochre);
-  color: var(--zeieli-ochre);
+  border-color: var(--zeieli-terracotta);
+  color: var(--zeieli-terracotta);
 }
 
 .zeieli-hero__secondary-link span {
@@ -304,7 +300,7 @@ button.shopify-payment-button__button--unbranded {
   aspect-ratio: 1 / 1;
   background: var(--zeieli-sand);
   border: 1px solid var(--zeieli-line);
-  border-bottom: 4px solid var(--zeieli-ochre);
+  border-bottom: 1px solid var(--zeieli-line);
   border-radius: 3px;
   overflow: hidden;
 }
@@ -338,7 +334,7 @@ button.shopify-payment-button__button--unbranded {
 
 footer {
   background: var(--zeieli-blue) !important;
-  border-top: 7px solid var(--zeieli-terracotta);
+  border-top: 4px solid var(--zeieli-terracotta);
   color: var(--zeieli-paper);
 }
 
@@ -367,21 +363,220 @@ footer .section .text-block p {
 
 footer input {
   background: var(--zeieli-paper) !important;
-  border: 2px solid var(--zeieli-ochre) !important;
+  border: 1px solid var(--zeieli-terracotta) !important;
   border-radius: 3px !important;
   color: var(--zeieli-ink) !important;
 }
 
 footer input::placeholder {
-  color: #6e6257;
+  color: var(--zeieli-blue);
   opacity: 1;
 }
 
 footer button {
-  background: var(--zeieli-ochre) !important;
-  border: 2px solid var(--zeieli-blue) !important;
+  background: var(--zeieli-terracotta) !important;
+  border: 1px solid var(--zeieli-terracotta-dark) !important;
   border-radius: 3px !important;
+  color: var(--zeieli-paper) !important;
+}
+
+footer .email-signup__input-group--integrated {
+  background: var(--zeieli-paper) !important;
+  border: 1px solid var(--zeieli-terracotta) !important;
+  border-radius: 3px !important;
+  overflow: hidden;
+}
+
+footer .email-signup__input-group--integrated .email-signup__input {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  color: var(--zeieli-ink) !important;
+  min-height: 3rem;
+  padding: 0.75rem 1rem !important;
+}
+
+footer .email-signup__input-group--integrated .email-signup__input::placeholder {
   color: var(--zeieli-blue) !important;
+}
+
+footer .email-signup__button--integrated {
+  background: var(--zeieli-terracotta) !important;
+  border: 0 !important;
+  border-left: 1px solid var(--zeieli-terracotta-dark) !important;
+  border-radius: 0 !important;
+  color: var(--zeieli-paper) !important;
+  margin: 0 !important;
+  min-height: 3rem;
+  width: 3rem;
+}
+
+footer .policy-list-trigger {
+  background: transparent !important;
+  border: 0 !important;
+  color: var(--zeieli-paper) !important;
+  text-decoration: underline;
+  text-decoration-color: var(--zeieli-terracotta);
+  text-underline-offset: 3px;
+}
+
+.product-details .accordion {
+  border-block: 1px solid var(--zeieli-line);
+  margin-top: 1rem;
+}
+
+.product-details .details__header {
+  color: var(--zeieli-blue);
+  font-family: var(--zeieli-body);
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  padding-block: 1rem;
+}
+
+.product-details .details-content {
+  color: var(--zeieli-ink);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  padding: 0 0 1rem;
+}
+
+.product-details .details-content p {
+  margin: 0 0 0.7rem;
+}
+
+.product-details .details-content table,
+.zeieli-size-guide table {
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  min-width: 100%;
+  text-align: left;
+}
+
+.product-details .details-content th,
+.product-details .details-content td,
+.zeieli-size-guide th,
+.zeieli-size-guide td {
+  border-bottom: 1px solid var(--zeieli-line);
+  padding: 0.55rem 0.6rem;
+  white-space: nowrap;
+}
+
+.product-details .details-content th,
+.zeieli-size-guide th {
+  background: var(--zeieli-sand);
+  color: var(--zeieli-blue);
+  font-weight: 800;
+}
+
+.zeieli-size-guide {
+  background: var(--zeieli-paper);
+  color: var(--zeieli-ink);
+  padding-block: clamp(3rem, 7vw, 6rem);
+}
+
+.zeieli-size-guide__inner {
+  margin-inline: auto;
+  max-width: 78rem;
+  padding-inline: 1.25rem;
+}
+
+.zeieli-size-guide__intro {
+  display: grid;
+  gap: 1rem 3rem;
+  grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.6fr);
+  margin-bottom: 2rem;
+}
+
+.zeieli-size-guide__eyebrow {
+  color: var(--zeieli-terracotta);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin: 0 0 0.65rem;
+  text-transform: uppercase;
+}
+
+.zeieli-size-guide h1,
+.zeieli-size-guide h2,
+.zeieli-size-guide h3 {
+  color: var(--zeieli-blue);
+}
+
+.zeieli-size-guide h1 {
+  font-size: clamp(2.4rem, 6vw, 5rem);
+  line-height: 0.95;
+  margin: 0;
+  max-width: 10ch;
+}
+
+.zeieli-size-guide__intro-copy {
+  align-self: end;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 35rem;
+}
+
+.zeieli-size-guide__steps,
+.zeieli-size-guide__table-wrap {
+  border-top: 1px solid var(--zeieli-line);
+  margin-top: 2rem;
+  padding-top: 2rem;
+}
+
+.zeieli-size-guide__steps {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.zeieli-size-guide__step {
+  border-left: 3px solid var(--zeieli-terracotta);
+  padding-left: 1rem;
+}
+
+.zeieli-size-guide__step strong {
+  color: var(--zeieli-blue);
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.zeieli-size-guide__step span {
+  display: block;
+  line-height: 1.5;
+}
+
+.zeieli-size-guide__table-wrap {
+  overflow-x: auto;
+}
+
+.zeieli-size-guide__table-wrap h2 {
+  font-size: clamp(1.5rem, 3vw, 2.3rem);
+  margin: 0 0 0.5rem;
+}
+
+.zeieli-size-guide__table-wrap > p {
+  line-height: 1.55;
+  margin: 0 0 1rem;
+}
+
+.zeieli-size-guide__note {
+  background: var(--zeieli-sand);
+  border-left: 3px solid var(--zeieli-terracotta);
+  line-height: 1.5;
+  margin-top: 2rem;
+  padding: 1rem 1.1rem;
+}
+
+@media screen and (max-width: 749px) {
+  .zeieli-size-guide__intro,
+  .zeieli-size-guide__steps {
+    grid-template-columns: 1fr;
+  }
+
+  .zeieli-size-guide h1 {
+    max-width: 12ch;
+  }
 }
 
 @media screen and (max-width: 749px) {
