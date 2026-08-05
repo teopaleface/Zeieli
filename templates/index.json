@@ -11,12 +11,12 @@
     "zeieli_hero": {
       "type": "zeieli-hero",
       "settings": {
-        "eyebrow": "Colecția nouă",
-        "heading": "Rochii noi. Prețuri mici.",
-        "text": "<p>Modele ușor de purtat, culori care ies în evidență și prețuri care nu te opresc.</p>",
-        "button_label": "Cumpără acum",
+        "eyebrow": "Rochii inspirate din România",
+        "heading": "Rochii cu suflet românesc.",
+        "text": "<p>Modele feminine cu detalii inspirate din ia românească și locurile de acasă.</p>",
+        "button_label": "Vezi colecția",
         "button_link": "shopify://collections/all",
-        "secondary_label": "Vezi catalogul",
+        "secondary_label": "Descoperă Zeieli",
         "secondary_link": "shopify://collections/all"
       }
     },

@@ -1,13 +1,13 @@
 # Zeieli Shopify Theme
 
-Custom Shopify theme for the ZEIELI dress store, built on Shopify Horizon as a clean technical base and adapted for a loud, fast-fashion Romanian storefront.
+Custom Shopify theme for the ZEIELI dress store, built on Shopify Horizon as a clean technical base and adapted for a warm Romanian everyday-fashion storefront.
 
 ## Brand direction
 
-- Electric blue, orange, yellow, pink and black palette
+- Paper, terracotta, Romanian blue, ochre and countryside green palette
 - Romanian-first retail messaging
-- Full-bleed photo hero with oversized Arial Black offer messaging
-- Dense square product cards with hard borders, hard shadows and red promo prices
+- Full-bleed AI-generated Romanian village hero with an ie-inspired dress
+- Dense product discovery with warm surfaces and direct shopping CTAs
 - Mobile-first product discovery and native Shopify cart/search flows
 
 ## Local workflow

@@ -1,0 +1,449 @@
+/*
+ * ZEIELI Romania layer
+ *
+ * Warm Romanian countryside, contemporary ie-inspired details and a direct
+ * retail layout. This replaces the primary/secondary Lego-like contrast with
+ * terracotta, Romanian blue, ochre and paper tones.
+ */
+:root {
+  --zeieli-paper: #f8f3eb;
+  --zeieli-sand: #eee3d4;
+  --zeieli-terracotta: #a84634;
+  --zeieli-terracotta-dark: #813426;
+  --zeieli-blue: #1e3a4c;
+  --zeieli-ochre: #d69b3b;
+  --zeieli-forest: #55664e;
+  --zeieli-ink: #26221e;
+  --zeieli-line: #d8c8b4;
+  --zeieli-display: 'Trebuchet MS', Arial, Helvetica, sans-serif;
+  --zeieli-body: Arial, Helvetica, sans-serif;
+}
+
+html,
+body {
+  background: var(--zeieli-paper);
+  color: var(--zeieli-ink);
+  font-family: var(--zeieli-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  color: var(--zeieli-blue);
+  font-family: var(--zeieli-display);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--zeieli-ochre);
+  outline-offset: 3px;
+}
+
+#header-group {
+  position: relative;
+  z-index: var(--layer-sticky);
+}
+
+.announcement-bar {
+  background-color: var(--zeieli-terracotta) !important;
+  background-image: repeating-linear-gradient(
+    135deg,
+    transparent 0,
+    transparent 10px,
+    rgb(255 255 255 / 0.08) 10px,
+    rgb(255 255 255 / 0.08) 12px
+  );
+  border-bottom: 3px solid var(--zeieli-blue);
+  color: var(--zeieli-paper) !important;
+  font-family: var(--zeieli-body);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  min-height: 2.2rem;
+  text-transform: uppercase;
+}
+
+.announcement-bar__text {
+  font-weight: 800;
+}
+
+.header-section,
+.header,
+.header__row {
+  background: var(--zeieli-paper) !important;
+}
+
+.header {
+  border-block-end: 1px solid var(--zeieli-line);
+}
+
+.header-logo {
+  color: var(--zeieli-blue) !important;
+  font-family: var(--zeieli-display);
+  font-size: clamp(1.3rem, 1.1rem + 0.7vw, 1.85rem);
+  font-weight: 900;
+  letter-spacing: -0.08em;
+  text-shadow: none;
+  text-transform: uppercase;
+}
+
+.header-menu__list,
+.header-menu__list a,
+.header-actions__action {
+  color: var(--zeieli-blue);
+  font-family: var(--zeieli-body);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.zeieli-hero-wrapper {
+  background: var(--zeieli-paper);
+  padding: 0 0 1.5rem;
+}
+
+.zeieli-hero {
+  background: var(--zeieli-blue);
+  border-bottom: 7px solid var(--zeieli-ochre);
+  display: block;
+  margin: 0;
+  max-width: none;
+  min-height: clamp(34rem, 54vw, 47rem);
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.zeieli-hero__media {
+  background: var(--zeieli-sand);
+  inset: 0;
+  min-height: 0;
+  position: absolute;
+}
+
+.zeieli-hero__media::after {
+  background:
+    linear-gradient(90deg, rgb(30 58 76 / 0.86) 0%, rgb(30 58 76 / 0.5) 34%, rgb(30 58 76 / 0.08) 75%),
+    linear-gradient(0deg, rgb(30 58 76 / 0.36), transparent 45%);
+  content: '';
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.zeieli-hero__media picture,
+.zeieli-hero__media img {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.zeieli-hero__media img {
+  object-fit: cover;
+  object-position: center 42%;
+}
+
+.zeieli-hero__content {
+  align-items: flex-start;
+  background: transparent;
+  color: var(--zeieli-paper);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 40rem;
+  min-height: inherit;
+  padding: clamp(2rem, 5vw, 5.5rem);
+  position: relative;
+  z-index: 2;
+}
+
+.zeieli-hero__eyebrow {
+  background: var(--zeieli-paper);
+  border-left: 6px solid var(--zeieli-terracotta);
+  color: var(--zeieli-blue);
+  font-family: var(--zeieli-body);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin: 0 0 1.1rem;
+  padding: 0.5rem 0.75rem;
+  text-transform: uppercase;
+}
+
+.zeieli-hero h1 {
+  color: var(--zeieli-paper);
+  font-family: var(--zeieli-display);
+  font-size: clamp(3.2rem, 7vw, 6.3rem);
+  line-height: 0.9;
+  margin: 0;
+  max-width: 8ch;
+  text-shadow: 2px 3px 0 var(--zeieli-terracotta-dark);
+  text-transform: none;
+}
+
+.zeieli-hero__text {
+  color: var(--zeieli-paper);
+  font-size: clamp(1rem, 1vw + 0.55rem, 1.2rem);
+  font-weight: 700;
+  line-height: 1.45;
+  margin-top: 1.5rem;
+  max-width: 27rem;
+}
+
+.zeieli-hero__text p {
+  margin: 0;
+}
+
+.zeieli-hero__actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 1.8rem;
+}
+
+.zeieli-hero__button,
+.button,
+.button-secondary,
+.button-custom,
+button.shopify-payment-button__button--unbranded {
+  background: var(--zeieli-terracotta) !important;
+  border: 2px solid var(--zeieli-paper) !important;
+  border-radius: 3px !important;
+  box-shadow: 3px 3px 0 var(--zeieli-ochre);
+  color: var(--zeieli-paper) !important;
+  font-family: var(--zeieli-body);
+  font-weight: 800;
+  min-height: 3.1rem;
+  padding-inline: 1.4rem;
+  text-transform: uppercase;
+  transition: box-shadow 120ms ease-out, transform 120ms ease-out, background-color 120ms ease-out;
+}
+
+.zeieli-hero__button:hover,
+.button:hover,
+.button-secondary:hover,
+.button-custom:hover {
+  background: var(--zeieli-terracotta-dark) !important;
+  box-shadow: 5px 5px 0 var(--zeieli-ochre);
+  color: var(--zeieli-paper) !important;
+  transform: translate(-2px, -2px);
+}
+
+.zeieli-hero__secondary-link {
+  border-bottom: 2px solid var(--zeieli-paper);
+  color: var(--zeieli-paper);
+  font-family: var(--zeieli-body);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  padding-bottom: 0.25rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.zeieli-hero__secondary-link:hover {
+  border-color: var(--zeieli-ochre);
+  color: var(--zeieli-ochre);
+}
+
+.zeieli-hero__secondary-link span {
+  font-size: 1rem;
+  margin-left: 0.25rem;
+}
+
+.section-resource-list {
+  background: var(--zeieli-paper) !important;
+  border-top: 1px solid var(--zeieli-line);
+}
+
+.section-resource-list__header {
+  align-items: baseline;
+}
+
+.section-resource-list__header h3 {
+  color: var(--zeieli-blue);
+  font-family: var(--zeieli-display);
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.section-resource-list__header a {
+  color: var(--zeieli-terracotta);
+  font-family: var(--zeieli-body);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-transform: uppercase;
+}
+
+.section-resource-list .product-card__content {
+  gap: 0.45rem;
+}
+
+.section-resource-list .card-gallery {
+  aspect-ratio: 1 / 1;
+  background: var(--zeieli-sand);
+  border: 1px solid var(--zeieli-line);
+  border-bottom: 4px solid var(--zeieli-ochre);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.section-resource-list .product-card .text-block {
+  color: var(--zeieli-ink);
+  font-family: var(--zeieli-body);
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.section-resource-list .product-card .text-block + product-price,
+.section-resource-list .product-card product-price {
+  color: var(--zeieli-terracotta) !important;
+  font-family: var(--zeieli-body);
+  font-size: 1.02rem;
+  font-weight: 800;
+}
+
+.product-card .quick-add__button,
+.badge {
+  background: var(--zeieli-terracotta) !important;
+  border: 0 !important;
+  border-radius: 3px !important;
+  color: var(--zeieli-paper) !important;
+  font-family: var(--zeieli-body);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+footer {
+  background: var(--zeieli-blue) !important;
+  border-top: 7px solid var(--zeieli-terracotta);
+  color: var(--zeieli-paper);
+}
+
+footer .section-background,
+footer .section {
+  background: transparent !important;
+}
+
+footer a,
+footer button,
+footer input,
+footer .text-block,
+footer .menu__heading__default,
+footer .section .text-block > *,
+footer .section .text-block h1,
+footer .section .text-block h2,
+footer .section .text-block h3,
+footer .section .text-block h4,
+footer .section .text-block h5,
+footer .section .text-block h6,
+footer .section .text-block p {
+  --color: var(--zeieli-paper);
+  --color-foreground: var(--zeieli-paper);
+  color: var(--zeieli-paper) !important;
+}
+
+footer input {
+  background: var(--zeieli-paper) !important;
+  border: 2px solid var(--zeieli-ochre) !important;
+  border-radius: 3px !important;
+  color: var(--zeieli-ink) !important;
+}
+
+footer input::placeholder {
+  color: #6e6257;
+  opacity: 1;
+}
+
+footer button {
+  background: var(--zeieli-ochre) !important;
+  border: 2px solid var(--zeieli-blue) !important;
+  border-radius: 3px !important;
+  color: var(--zeieli-blue) !important;
+}
+
+@media screen and (max-width: 749px) {
+  .announcement-bar {
+    font-size: 0.58rem;
+    letter-spacing: 0.04em;
+  }
+
+  .zeieli-hero-wrapper {
+    padding-top: 0;
+  }
+
+  .zeieli-hero {
+    min-height: 35rem;
+  }
+
+  .zeieli-hero__media::after {
+    background:
+      linear-gradient(0deg, rgb(30 58 76 / 0.84) 0%, rgb(30 58 76 / 0.48) 56%, rgb(30 58 76 / 0.12) 100%),
+      linear-gradient(90deg, rgb(30 58 76 / 0.28), transparent 72%);
+  }
+
+  .zeieli-hero__media img {
+    object-position: 65% 42%;
+  }
+
+  .zeieli-hero__content {
+    min-height: 35rem;
+    padding: 1.5rem 1.25rem 2.25rem;
+  }
+
+  .zeieli-hero h1 {
+    font-size: clamp(3rem, 15vw, 5rem);
+  }
+
+  .zeieli-hero__actions {
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .zeieli-hero__button {
+    text-align: center;
+    width: 100%;
+  }
+
+  .section-resource-list {
+    padding-inline: 1rem;
+  }
+
+  .section-resource-list__header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

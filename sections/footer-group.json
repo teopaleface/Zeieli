@@ -52,7 +52,7 @@
             "text_LWt8Pz": {
               "type": "text",
               "settings": {
-                "text": "<h2>Prinde noutățile Zeieli</h2>",
+                "text": "<h2>Descoperă poveștile Zeieli</h2>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -76,7 +76,7 @@
             "text_f9CFLH": {
               "type": "text",
               "settings": {
-                "text": "<p>Noutăți, prețuri mici și rochii care dispar repede.</p>",
+                "text": "<p>Rochii noi, inspirație românească și detalii care se poartă cu drag.</p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
