@@ -11,12 +11,12 @@
     "zeieli_hero": {
       "type": "zeieli-hero",
       "settings": {
-        "eyebrow": "Rochii pentru zilele tale",
-        "heading": "Arată bine. Simte-te bine.",
-        "text": "<p>Modele ușor de purtat, prețuri prietenoase și livrare rapidă.</p>",
-        "button_label": "Vezi rochiile",
+        "eyebrow": "Colecția nouă",
+        "heading": "Rochii noi. Prețuri mici.",
+        "text": "<p>Modele ușor de purtat, culori care ies în evidență și prețuri care nu te opresc.</p>",
+        "button_label": "Cumpără acum",
         "button_link": "shopify://collections/all",
-        "secondary_label": "Descoperă Zeieli",
+        "secondary_label": "Vezi catalogul",
         "secondary_link": "shopify://collections/all"
       }
     },
@@ -83,7 +83,7 @@
               "type": "_product-list-button",
               "name": "t:names.product_list_button",
               "settings": {
-                "label": "Vezi toate",
+                "label": "Vezi toate rochiile",
                 "open_in_new_tab": false,
                 "style_class": "link",
                 "width": "fit-content",

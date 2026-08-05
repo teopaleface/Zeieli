@@ -12,7 +12,7 @@
     "logo_height": 36,
     "logo_height_mobile": 28,
     "page_background_color": "{{ settings.color_palette.background }}",
-    "page_width": "normal",
+    "page_width": "wide",
     "page_text_color": "{{ settings.color_palette.foreground }}",
     "type_body_font": "inter_n4",
     "type_subheading_font": "inter_n5",
@@ -103,10 +103,10 @@
     "variant_button_radius": 14,
     "variant_button_width": "equal-width-buttons",
     "color_palette": {
-      "background": "#FFFDF9",
-      "foreground": "#1D2530",
-      "color1": "#F06F58",
-      "color2": "#E6DDD4"
+      "background": "#FFFFFF",
+      "foreground": "#111111",
+      "color1": "#FF4D1F",
+      "color2": "#FFD400"
     }
   },
   "presets": {
@@ -114,7 +114,7 @@
       "logo_height": 36,
       "logo_height_mobile": 28,
       "page_background_color": "{{ settings.color_palette.background }}",
-      "page_width": "normal",
+      "page_width": "wide",
       "page_text_color": "{{ settings.color_palette.foreground }}",
       "type_body_font": "inter_n4",
       "type_subheading_font": "inter_n5",
@@ -205,10 +205,10 @@
       "variant_button_radius": 14,
       "variant_button_width": "equal-width-buttons",
       "color_palette": {
-        "background": "#FFFDF9",
-        "foreground": "#1D2530",
-        "color1": "#F06F58",
-        "color2": "#E6DDD4"
+        "background": "#FFFFFF",
+        "foreground": "#111111",
+        "color1": "#FF4D1F",
+        "color2": "#FFD400"
       }
     }
   }

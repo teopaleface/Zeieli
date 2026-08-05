@@ -1,0 +1,437 @@
+/*
+ * ZEIELI fast-fashion layer
+ *
+ * This is intentionally commercial and generic: high-contrast promo colors,
+ * utilitarian sans-serif type, dense product cards, and direct-response CTAs.
+ * ÉLANORA keeps the editorial/premium visual language; ZEIELI does not.
+ */
+:root {
+  --zeieli-bg: #ffffff;
+  --zeieli-surface: #f2f3f5;
+  --zeieli-ink: #111111;
+  --zeieli-orange: #ff4d1f;
+  --zeieli-yellow: #ffd400;
+  --zeieli-blue: #2454ff;
+  --zeieli-pink: #ff2f8a;
+  --zeieli-red: #e52d2d;
+  --zeieli-line: #d8d8d8;
+  --zeieli-display: 'Arial Black', Arial, Helvetica, sans-serif;
+  --zeieli-body: Arial, Helvetica, sans-serif;
+}
+
+html,
+body {
+  background: var(--zeieli-bg);
+  color: var(--zeieli-ink);
+  font-family: var(--zeieli-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: var(--zeieli-display);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--zeieli-yellow);
+  outline-offset: 3px;
+}
+
+#header-group {
+  position: relative;
+  z-index: var(--layer-sticky);
+}
+
+.announcement-bar {
+  background: var(--zeieli-orange) !important;
+  border-bottom: 3px solid var(--zeieli-ink);
+  color: #ffffff !important;
+  font-family: var(--zeieli-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  min-height: 2.2rem;
+  text-transform: uppercase;
+}
+
+.announcement-bar__text {
+  font-weight: 900;
+}
+
+.header-section,
+.header,
+.header__row {
+  background: var(--zeieli-bg) !important;
+}
+
+.header {
+  border-block-end: 3px solid var(--zeieli-ink);
+}
+
+.header-logo {
+  color: var(--zeieli-blue) !important;
+  font-family: var(--zeieli-display);
+  font-size: clamp(1.35rem, 1.1rem + 0.8vw, 2rem);
+  font-weight: 900;
+  letter-spacing: -0.08em;
+  text-shadow: 2px 2px 0 var(--zeieli-yellow);
+  text-transform: uppercase;
+}
+
+.header-menu__list,
+.header-menu__list a,
+.header-actions__action {
+  font-family: var(--zeieli-body);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.zeieli-hero-wrapper {
+  background: var(--zeieli-bg);
+  padding: 0 0 1.25rem;
+}
+
+.zeieli-hero {
+  background: var(--zeieli-ink);
+  border-bottom: 6px solid var(--zeieli-ink);
+  display: block;
+  margin: 0;
+  max-width: none;
+  min-height: clamp(34rem, 54vw, 48rem);
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.zeieli-hero__media {
+  background: var(--zeieli-surface);
+  inset: 0;
+  min-height: 0;
+  position: absolute;
+}
+
+.zeieli-hero__media::after {
+  background:
+    linear-gradient(90deg, rgb(0 0 0 / 78%) 0%, rgb(0 0 0 / 46%) 39%, rgb(0 0 0 / 4%) 78%),
+    linear-gradient(0deg, rgb(0 0 0 / 30%), transparent 42%);
+  content: '';
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.zeieli-hero__media picture,
+.zeieli-hero__media img {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.zeieli-hero__media img {
+  object-fit: cover;
+  object-position: center 38%;
+}
+
+.zeieli-hero__content {
+  align-items: flex-start;
+  background: transparent;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  max-width: 42rem;
+  min-height: inherit;
+  padding: clamp(2rem, 5vw, 5.5rem);
+  position: relative;
+  z-index: 2;
+}
+
+.zeieli-hero__eyebrow {
+  background: var(--zeieli-yellow);
+  color: var(--zeieli-ink);
+  font-family: var(--zeieli-display);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  margin: 0 0 1rem;
+  padding: 0.45rem 0.7rem;
+  text-transform: uppercase;
+}
+
+.zeieli-hero h1 {
+  color: #ffffff;
+  font-family: var(--zeieli-display);
+  font-size: clamp(3.4rem, 8vw, 7.2rem);
+  line-height: 0.84;
+  margin: 0;
+  max-width: 8ch;
+  text-shadow: 4px 4px 0 var(--zeieli-orange);
+  text-transform: uppercase;
+}
+
+.zeieli-hero__text {
+  color: #ffffff;
+  font-size: clamp(1rem, 1vw + 0.55rem, 1.25rem);
+  font-weight: 700;
+  line-height: 1.35;
+  margin-top: 1.5rem;
+  max-width: 26rem;
+}
+
+.zeieli-hero__text p {
+  margin: 0;
+}
+
+.zeieli-hero__actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.75rem;
+}
+
+.zeieli-hero__button,
+.button,
+.button-secondary,
+.button-custom,
+button.shopify-payment-button__button--unbranded {
+  background: var(--zeieli-orange) !important;
+  border: 3px solid var(--zeieli-ink) !important;
+  border-radius: 0 !important;
+  box-shadow: 4px 4px 0 var(--zeieli-ink);
+  color: #ffffff !important;
+  font-family: var(--zeieli-display);
+  font-weight: 900;
+  min-height: 3.15rem;
+  padding-inline: 1.35rem;
+  text-transform: uppercase;
+  transition: box-shadow 120ms ease-out, transform 120ms ease-out;
+}
+
+.zeieli-hero__button:hover,
+.button:hover,
+.button-secondary:hover,
+.button-custom:hover {
+  background: var(--zeieli-pink) !important;
+  box-shadow: 6px 6px 0 var(--zeieli-ink);
+  color: #ffffff !important;
+  transform: translate(-2px, -2px);
+}
+
+.zeieli-hero__secondary-link {
+  background: var(--zeieli-blue);
+  border: 3px solid var(--zeieli-ink);
+  color: #ffffff;
+  font-family: var(--zeieli-display);
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  padding: 0.85rem 1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.zeieli-hero__secondary-link:hover {
+  background: var(--zeieli-yellow);
+  color: var(--zeieli-ink);
+}
+
+.zeieli-hero__secondary-link span {
+  font-size: 1rem;
+  margin-left: 0.25rem;
+}
+
+.section-resource-list {
+  background: var(--zeieli-bg) !important;
+  border-top: 8px solid var(--zeieli-yellow);
+}
+
+.section-resource-list__header {
+  align-items: baseline;
+}
+
+.section-resource-list__header h3 {
+  color: var(--zeieli-ink);
+  font-family: var(--zeieli-display);
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.section-resource-list__header a {
+  background: var(--zeieli-blue);
+  border: 2px solid var(--zeieli-ink);
+  color: #ffffff;
+  font-family: var(--zeieli-display);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  padding: 0.6rem 0.8rem;
+  text-transform: uppercase;
+}
+
+.section-resource-list .product-card__content {
+  gap: 0.5rem;
+}
+
+.section-resource-list .card-gallery {
+  aspect-ratio: 1 / 1;
+  background: var(--zeieli-surface);
+  border: 3px solid var(--zeieli-ink);
+  border-radius: 0;
+  box-shadow: 4px 4px 0 var(--zeieli-ink);
+  overflow: hidden;
+}
+
+.section-resource-list .product-card .text-block {
+  color: var(--zeieli-ink);
+  font-family: var(--zeieli-body);
+  font-size: 0.9rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.section-resource-list .product-card .text-block + product-price,
+.section-resource-list .product-card product-price {
+  color: var(--zeieli-red) !important;
+  font-family: var(--zeieli-display);
+  font-size: 1.05rem;
+  font-weight: 900;
+}
+
+.product-card .quick-add__button,
+.badge {
+  background: var(--zeieli-pink) !important;
+  border: 2px solid var(--zeieli-ink) !important;
+  border-radius: 0 !important;
+  color: #ffffff !important;
+  font-family: var(--zeieli-display);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+footer {
+  background: var(--zeieli-blue) !important;
+  border-top: 6px solid var(--zeieli-ink);
+  color: #ffffff;
+}
+
+footer .section-background,
+footer .section {
+  background: transparent !important;
+}
+
+footer a,
+footer button,
+footer input,
+footer .text-block,
+footer .menu__heading__default,
+footer .section .text-block > *,
+footer .section .text-block h1,
+footer .section .text-block h2,
+footer .section .text-block h3,
+footer .section .text-block h4,
+footer .section .text-block h5,
+footer .section .text-block h6,
+footer .section .text-block p {
+  --color: #ffffff;
+  --color-foreground: #ffffff;
+  color: #ffffff !important;
+}
+
+footer input {
+  background: #ffffff !important;
+  border: 3px solid var(--zeieli-ink) !important;
+  border-radius: 0 !important;
+  color: var(--zeieli-ink) !important;
+}
+
+footer input::placeholder {
+  color: #555555;
+  opacity: 1;
+}
+
+footer button {
+  background: var(--zeieli-yellow) !important;
+  border: 3px solid var(--zeieli-ink) !important;
+  border-radius: 0 !important;
+  color: var(--zeieli-ink) !important;
+}
+
+@media screen and (max-width: 749px) {
+  .announcement-bar {
+    font-size: 0.58rem;
+    letter-spacing: 0.04em;
+  }
+
+  .zeieli-hero-wrapper {
+    padding-top: 0;
+  }
+
+  .zeieli-hero {
+    min-height: 35rem;
+  }
+
+  .zeieli-hero__media::after {
+    background:
+      linear-gradient(0deg, rgb(0 0 0 / 84%) 0%, rgb(0 0 0 / 42%) 55%, rgb(0 0 0 / 8%) 100%),
+      linear-gradient(90deg, rgb(0 0 0 / 30%), transparent 70%);
+  }
+
+  .zeieli-hero__content {
+    min-height: 35rem;
+    padding: 1.5rem 1.25rem 2.25rem;
+  }
+
+  .zeieli-hero h1 {
+    font-size: clamp(3rem, 16vw, 5.2rem);
+  }
+
+  .zeieli-hero__actions {
+    align-items: stretch;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .zeieli-hero__button,
+  .zeieli-hero__secondary-link {
+    text-align: center;
+    width: 100%;
+  }
+
+  .section-resource-list {
+    padding-inline: 1rem;
+  }
+
+  .section-resource-list__header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
