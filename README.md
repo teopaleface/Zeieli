@@ -42,4 +42,4 @@ shopify theme check --path .
 shopify theme push --store gejd27-6s.myshopify.com --path . --theme <theme-id>
 ```
 
-The theme is uploaded to Shopify as unpublished until storefront QA is complete. Never commit credentials, Admin API tokens or private environment files.
+The current live Shopify theme is `207579054429` on `gejd27-6s.myshopify.com`; storefront QA has been completed for desktop and mobile. The generated product images remain ready for media upload once the catalog receives validated product names, variants, prices and stock. Never commit credentials, Admin API tokens or private environment files.
