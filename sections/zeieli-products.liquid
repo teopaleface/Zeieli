@@ -1,0 +1,136 @@
+{% liquid
+  assign chosen_collection = section.settings.collection
+  assign product_limit = section.settings.product_limit
+%}
+
+<section
+  class="zeieli-products"
+  id="produse"
+  aria-labelledby="ZeieliProductsHeading-{{ section.id }}"
+>
+  <div class="zeieli-products__header">
+    <h2 id="ZeieliProductsHeading-{{ section.id }}">{{ section.settings.heading }}</h2>
+  </div>
+
+  {% if chosen_collection != blank and chosen_collection.products_count > 0 %}
+    <div class="zeieli-products__grid">
+      {% for product in chosen_collection.products limit: product_limit %}
+        {% liquid
+          assign selected_variant = product.selected_or_first_available_variant
+          assign has_real_discount = false
+          if selected_variant.compare_at_price > selected_variant.price
+            assign has_real_discount = true
+          endif
+          assign rating = product.metafields.reviews.rating.value.rating
+          assign rating_count = product.metafields.reviews.rating_count
+        %}
+
+        <article class="zeieli-product-card">
+          <a class="zeieli-product-card__media" href="{{ product.url }}">
+            {% if product.featured_image != blank %}
+              {{
+                product.featured_image
+                | image_url: width: 800
+                | image_tag:
+                  widths: '240, 360, 480, 640, 800',
+                  sizes: '(min-width: 990px) 25vw, 50vw',
+                  loading: 'lazy',
+                  alt: product.featured_image.alt | default: product.title
+              }}
+            {% else %}
+              {{ 'product-apparel-1' | placeholder_svg_tag: 'zeieli-product-card__placeholder' }}
+            {% endif %}
+
+            {% if has_real_discount %}
+              <span class="zeieli-product-card__badge">Reducere</span>
+            {% endif %}
+          </a>
+
+          <h3>
+            <a href="{{ product.url }}">{{ product.title }}</a>
+          </h3>
+
+          {% if rating != blank %}
+            <p class="zeieli-product-card__rating">
+              {{ rating | round: 1 }} din 5
+              {% if rating_count != blank %}({{ rating_count }}){% endif %}
+            </p>
+          {% endif %}
+
+          <div class="zeieli-product-card__price">
+            <span>{{ selected_variant.price | money }}</span>
+            {% if has_real_discount %}
+              <s>{{ selected_variant.compare_at_price | money }}</s>
+            {% endif %}
+          </div>
+
+          {% if product.available %}
+            {% if product.has_only_default_variant %}
+              {% form 'product', product, class: 'zeieli-product-card__form' %}
+                <input type="hidden" name="id" value="{{ selected_variant.id }}">
+                <button type="submit" name="add">
+                  <span class="zeieli-product-card__cart-icon" aria-hidden="true">
+                    {{- 'icon-cart.svg' | inline_asset_content -}}
+                  </span>
+                  Adaugă în coș
+                </button>
+              {% endform %}
+            {% else %}
+              <a class="zeieli-product-card__button" href="{{ product.url }}">
+                Alege opțiunile
+              </a>
+            {% endif %}
+          {% else %}
+            <button class="zeieli-product-card__button" type="button" disabled>Stoc epuizat</button>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </div>
+  {% elsif request.design_mode %}
+    <div class="zeieli-products__grid">
+      {% for i in (1..product_limit) %}
+        {% render 'zeieli-preview-card', index: i %}
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="zeieli-catalog-empty">
+      <h2>Catalogul este în pregătire</h2>
+      <p>Produsele vor apărea aici după ce sunt adăugate și publicate în Shopify.</p>
+    </div>
+  {% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "Produse Zeieli",
+  "tag": "section",
+  "class": "zeieli-products-wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titlu",
+      "default": "Produse noi"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Colecție"
+    },
+    {
+      "type": "range",
+      "id": "product_limit",
+      "label": "Număr produse",
+      "min": 4,
+      "max": 16,
+      "step": 4,
+      "default": 12
+    }
+  ],
+  "presets": [
+    {
+      "name": "Produse Zeieli"
+    }
+  ]
+}
+{% endschema %}

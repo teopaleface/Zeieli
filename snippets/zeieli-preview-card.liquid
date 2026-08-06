@@ -1,0 +1,44 @@
+{% liquid
+  assign preview_index = index | modulo: 4
+  case preview_index
+    when 1
+      assign preview_image = 'zeieli-product-black-dress.jpg'
+      assign preview_title = 'Rochie midi pentru orice zi'
+      assign preview_price = '239,00 lei'
+      assign preview_compare = '379,00 lei'
+    when 2
+      assign preview_image = 'zeieli-product-white-resort-dress.jpg'
+      assign preview_title = 'Rochie albă vaporoasă'
+      assign preview_price = '209,00 lei'
+      assign preview_compare = '339,00 lei'
+    when 3
+      assign preview_image = 'zeieli-product-terracotta-tiered-dress.jpg'
+      assign preview_title = 'Rochie în nuanță de teracotă'
+      assign preview_price = '219,00 lei'
+      assign preview_compare = '359,00 lei'
+    else
+      assign preview_image = 'zeieli-product-floral-tiered-dress.jpg'
+      assign preview_title = 'Rochie înflorată cu volane'
+      assign preview_price = '229,00 lei'
+      assign preview_compare = '369,00 lei'
+  endcase
+%}
+
+<article class="zeieli-preview-card" aria-label="Previzualizare card produs">
+  <div class="zeieli-preview-card__image">
+    <img
+      src="{{ preview_image | asset_url }}"
+      width="1024"
+      height="1024"
+      loading="lazy"
+      alt=""
+    >
+    <span class="zeieli-preview-card__badge">Previzualizare</span>
+  </div>
+  <h3>{{ preview_title }}</h3>
+  <div class="zeieli-preview-card__price">
+    <span>{{ preview_price }}</span>
+    <s>{{ preview_compare }}</s>
+  </div>
+  <button type="button" disabled>Adaugă în coș</button>
+</article>

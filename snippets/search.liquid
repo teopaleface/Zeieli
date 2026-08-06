@@ -19,6 +19,10 @@
       aria-label="{{ 'content.search_input_label' | t }}"
       aria-haspopup="dialog"
     >
+      <span class="zeieli-search-placeholder mobile:hidden" aria-hidden="true">
+        Caută produse
+      </span>
+
       <span class="{% if display_style == 'icon' %}hidden{% else %}mobile:hidden{% endif %}">
         {{ 'content.search' | t }}
       </span>
