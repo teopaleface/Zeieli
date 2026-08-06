@@ -31,6 +31,9 @@ price exists.
 Use `--sync-sizes` to remove live variants whose sizes are no longer listed in
 the catalog source.
 
+Use `--sync-images` to upload the normalized catalog image and move it to the
+first position without deleting the original reference photograph.
+
 The prices are marked temporary in the catalog and must be confirmed before
 real inventory is enabled. Run the catalog sync with `--archive-retired` only
 after the replacement catalog and theme are verified. If the retired handles

@@ -10,6 +10,7 @@ const catalogPath = path.join(root, "catalog", "zeieli-products.json");
 const shouldArchiveRetired = process.argv.includes("--archive-retired");
 const shouldDeleteRetired = process.argv.includes("--delete-retired");
 const shouldSyncSizes = process.argv.includes("--sync-sizes");
+const shouldSyncImages = process.argv.includes("--sync-images");
 const retiredHandles = [
   "costum-tankini-sofia",
   "costum-tankini-marina",
@@ -105,6 +106,7 @@ async function ensureCollection({ handle, title, descriptionHtml }) {
 async function stageImage(filePath) {
   const filename = path.basename(filePath);
   const fileSize = String(fs.statSync(filePath).size);
+  const mimeType = path.extname(filePath).toLowerCase() === ".png" ? "image/png" : "image/jpeg";
   const staged = await graphql(
     `mutation StageImage($input: [StagedUploadInput!]!) {
       stagedUploadsCreate(input: $input) {
@@ -117,7 +119,7 @@ async function stageImage(filePath) {
         {
           resource: "IMAGE",
           filename,
-          mimeType: "image/jpeg",
+          mimeType,
           httpMethod: "POST",
           fileSize,
         },
@@ -130,7 +132,7 @@ async function stageImage(filePath) {
   for (const parameter of target.parameters) form.append(parameter.name, parameter.value);
   form.append(
     "file",
-    new Blob([fs.readFileSync(filePath)], { type: "image/jpeg" }),
+    new Blob([fs.readFileSync(filePath)], { type: mimeType }),
     filename,
   );
   const upload = await fetch(target.url, { method: "POST", body: form });
@@ -151,6 +153,9 @@ async function findProduct(handle) {
               id
               selectedOptions { name value }
             }
+          }
+          media(first: 20) {
+            nodes { id alt status }
           }
         }
       }
@@ -208,6 +213,7 @@ const products = JSON.parse(fs.readFileSync(catalogPath, "utf8"));
 for (const product of products) {
   const existing = await findProduct(product.handle);
   if (existing) {
+    let changed = false;
     if (shouldSyncSizes) {
       const variantsToDelete = existing.variants.nodes.filter((variant) => {
         const size = variant.selectedOptions.find((option) => option.name === "Mărime")?.value;
@@ -231,10 +237,56 @@ for (const product of products) {
           deleted.productVariantsBulkDelete.userErrors,
         );
         console.log(`Mărimi eliminate din ${existing.title}: ${variantsToDelete.length}`);
+        changed = true;
       } else {
         console.log(`Mărimi deja sincronizate: ${existing.title}`);
       }
-    } else {
+    }
+    if (shouldSyncImages) {
+      const catalogAlt = product.catalogImageAlt || product.imageAlt;
+      let catalogMedia = existing.media.nodes.find((media) => media.alt === catalogAlt);
+      if (!catalogMedia) {
+        const imageSource = await stageImage(path.resolve(root, product.image));
+        const updated = await graphql(
+          `mutation AddCatalogMedia($product: ProductUpdateInput!, $media: [CreateMediaInput!]) {
+            productUpdate(product: $product, media: $media) {
+              product { id }
+              userErrors { field message }
+            }
+          }`,
+          {
+            product: { id: existing.id },
+            media: [{ originalSource: imageSource, mediaContentType: "IMAGE", alt: catalogAlt }],
+          },
+        );
+        assertUserErrors(`Imaginea pentru ${existing.title}`, updated.productUpdate.userErrors);
+        for (let attempt = 0; attempt < 30; attempt += 1) {
+          const refreshed = await findProduct(product.handle);
+          catalogMedia = refreshed.media.nodes.find((media) => media.alt === catalogAlt);
+          if (catalogMedia?.status === "READY") break;
+          await new Promise((resolve) => setTimeout(resolve, 1000));
+        }
+        if (!catalogMedia || catalogMedia.status !== "READY") {
+          throw new Error(`Imaginea pentru ${existing.title} nu a devenit READY`);
+        }
+      }
+      const reordered = await graphql(
+        `mutation MakeCatalogMediaPrimary($id: ID!, $moves: [MoveInput!]!) {
+          productReorderMedia(id: $id, moves: $moves) {
+            job { id }
+            mediaUserErrors { field message }
+          }
+        }`,
+        { id: existing.id, moves: [{ id: catalogMedia.id, newPosition: "0" }] },
+      );
+      assertUserErrors(
+        `Reordonarea imaginii pentru ${existing.title}`,
+        reordered.productReorderMedia.mediaUserErrors,
+      );
+      console.log(`Imagine de catalog sincronizată: ${existing.title}`);
+      changed = true;
+    }
+    if (!changed && !shouldSyncSizes && !shouldSyncImages) {
       console.log(`Există deja, omis: ${existing.title}`);
     }
     continue;
@@ -280,7 +332,7 @@ for (const product of products) {
         {
           originalSource: imageSource,
           mediaContentType: "IMAGE",
-          alt: product.imageAlt,
+          alt: product.catalogImageAlt || product.imageAlt,
         },
       ],
     },
