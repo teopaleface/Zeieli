@@ -9,6 +9,7 @@ const envPath = path.join(root, ".env.zeieli.local");
 const catalogPath = path.join(root, "catalog", "zeieli-products.json");
 const shouldArchiveRetired = process.argv.includes("--archive-retired");
 const shouldDeleteRetired = process.argv.includes("--delete-retired");
+const shouldSyncSizes = process.argv.includes("--sync-sizes");
 const retiredHandles = [
   "costum-tankini-sofia",
   "costum-tankini-marina",
@@ -140,7 +141,19 @@ async function stageImage(filePath) {
 async function findProduct(handle) {
   const data = await graphql(
     `query ProductByHandle($query: String!) {
-      products(first: 1, query: $query) { nodes { id handle title } }
+      products(first: 1, query: $query) {
+        nodes {
+          id
+          handle
+          title
+          variants(first: 100) {
+            nodes {
+              id
+              selectedOptions { name value }
+            }
+          }
+        }
+      }
     }`,
     { query: `handle:${handle}` },
   );
@@ -195,7 +208,35 @@ const products = JSON.parse(fs.readFileSync(catalogPath, "utf8"));
 for (const product of products) {
   const existing = await findProduct(product.handle);
   if (existing) {
-    console.log(`Există deja, omis: ${existing.title}`);
+    if (shouldSyncSizes) {
+      const variantsToDelete = existing.variants.nodes.filter((variant) => {
+        const size = variant.selectedOptions.find((option) => option.name === "Mărime")?.value;
+        return size && !product.sizes.includes(size);
+      });
+      if (variantsToDelete.length) {
+        const deleted = await graphql(
+          `mutation DeleteUnlistedSizes($productId: ID!, $variantsIds: [ID!]!) {
+            productVariantsBulkDelete(productId: $productId, variantsIds: $variantsIds) {
+              product { id title }
+              userErrors { field message }
+            }
+          }`,
+          {
+            productId: existing.id,
+            variantsIds: variantsToDelete.map((variant) => variant.id),
+          },
+        );
+        assertUserErrors(
+          `Sincronizarea mărimilor pentru ${existing.title}`,
+          deleted.productVariantsBulkDelete.userErrors,
+        );
+        console.log(`Mărimi eliminate din ${existing.title}: ${variantsToDelete.length}`);
+      } else {
+        console.log(`Mărimi deja sincronizate: ${existing.title}`);
+      }
+    } else {
+      console.log(`Există deja, omis: ${existing.title}`);
+    }
     continue;
   }
 

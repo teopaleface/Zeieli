@@ -28,6 +28,9 @@ zero and tracked, so a product cannot be sold before real stock is entered in
 Shopify. Compare-at prices are intentionally omitted until a legitimate reference
 price exists.
 
+Use `--sync-sizes` to remove live variants whose sizes are no longer listed in
+the catalog source.
+
 The prices are marked temporary in the catalog and must be confirmed before
 real inventory is enabled. Run the catalog sync with `--archive-retired` only
 after the replacement catalog and theme are verified. If the retired handles
