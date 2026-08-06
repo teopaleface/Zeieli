@@ -20,6 +20,8 @@ Zeieli uses the familiar Romanian direct-response retail pattern:
 - Action hover: `#B92F08`
 - Font: Arial / Helvetica / system sans-serif
 - Container: `1320px`
+- Header group gap: `24px`
+- Header search width: `272px`
 
 ## Product cards
 
@@ -31,7 +33,9 @@ arbitrary variant.
 
 ## Responsive behavior
 
-- Desktop: four product columns and full search field.
+- Wide desktop (`>= 1361px`): four product columns and full search field.
+- Compact desktop/tablet (`990–1360px`): navigation remains visible and search
+  collapses to its icon so the header keeps clear spacing.
 - Mobile: two product columns, icon search and a controlled portrait hero crop.
 - Product grids never scroll horizontally.
 
