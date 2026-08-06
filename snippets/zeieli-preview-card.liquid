@@ -1,44 +1,11 @@
-{% liquid
-  assign preview_index = index | modulo: 4
-  case preview_index
-    when 1
-      assign preview_image = 'zeieli-product-black-swimdress-v2.jpg'
-      assign preview_title = 'Rochie de baie cu inserții transparente'
-      assign preview_price = '189,90 lei'
-      assign preview_compare = blank
-    when 2
-      assign preview_image = 'zeieli-product-white-resort-dress.jpg'
-      assign preview_title = 'Rochie albă vaporoasă'
-      assign preview_price = '219,90 lei'
-      assign preview_compare = blank
-    when 3
-      assign preview_image = 'zeieli-product-terracotta-tiered-dress.jpg'
-      assign preview_title = 'Rochie în nuanță de teracotă'
-      assign preview_price = '199,90 lei'
-      assign preview_compare = blank
-    else
-      assign preview_image = 'zeieli-product-floral-tiered-dress.jpg'
-      assign preview_title = 'Rochie înflorată cu volane'
-      assign preview_price = '189,90 lei'
-      assign preview_compare = blank
-  endcase
-%}
-
 <article class="zeieli-preview-card" aria-label="Previzualizare card produs">
   <div class="zeieli-preview-card__image">
-    <img
-      src="{{ preview_image | asset_url }}"
-      width="1024"
-      height="1024"
-      loading="lazy"
-      alt=""
-    >
+    {{ 'product-apparel-1' | placeholder_svg_tag: 'zeieli-preview-card__placeholder' }}
     <span class="zeieli-preview-card__badge">Previzualizare</span>
   </div>
-  <h3>{{ preview_title }}</h3>
+  <h3>Configurează colecția Zeieli</h3>
   <div class="zeieli-preview-card__price">
-    <span>{{ preview_price }}</span>
-    {% if preview_compare != blank %}<s>{{ preview_compare }}</s>{% endif %}
+    <span>—</span>
   </div>
-  <button type="button" disabled>Adaugă în coș</button>
+  <button type="button" disabled>Indisponibil în previzualizare</button>
 </article>

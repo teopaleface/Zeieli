@@ -1,6 +1,6 @@
 # Zeieli Shopify Theme
 
-Custom Shopify theme for the ZEIELI dress store, built on Shopify Horizon as a clean technical base and adapted for a Romanian everyday-fashion storefront.
+Custom Shopify theme for the ZEIELI fashion store, built on Shopify Horizon as a clean technical base and adapted for a Romanian everyday-fashion storefront.
 
 ## Brand direction
 
@@ -13,21 +13,12 @@ Custom Shopify theme for the ZEIELI dress store, built on Shopify Horizon as a c
 
 ## Product image set
 
-The seven Zeieli product assets below were generated as a separate visual set
-from the seven source product videos in `Materiale/`. They use different people
-and locations from the ÉLANORA imagery:
-
-- `assets/zeieli-product-purple-floral-set.jpg`
-- `assets/zeieli-product-black-turquoise-set.jpg`
-- `assets/zeieli-product-black-one-piece.jpg`
-- `assets/zeieli-product-black-swimdress-v2.jpg`
-- `assets/zeieli-product-white-resort-dress.jpg`
-- `assets/zeieli-product-terracotta-tiered-dress.jpg`
-- `assets/zeieli-product-floral-tiered-dress.jpg`
+The initial Zeieli catalog uses only the five original product photographs from
+`../Produse/`. Files from `../Produse/generate/` are intentionally excluded.
 
 ## Shopify automation
 
-`catalog/zeieli-products.json` is the source of truth for the initial seven-product
+`catalog/zeieli-products.json` is the source of truth for the initial five-product
 Zeieli catalog. Run `node scripts/sync-shopify-catalog.mjs` to create missing
 collections, upload product media, create size/color variants, and publish the
 products to the Online Store.
@@ -36,6 +27,12 @@ The script is idempotent by product handle. Initial variant inventory is always
 zero and tracked, so a product cannot be sold before real stock is entered in
 Shopify. Compare-at prices are intentionally omitted until a legitimate reference
 price exists.
+
+The prices are marked temporary in the catalog and must be confirmed before
+real inventory is enabled. Run the catalog sync with `--archive-retired` only
+after the replacement catalog and theme are verified. If the retired handles
+must no longer resolve in the storefront, use `--delete-retired` after checking
+the explicit `retiredHandles` list.
 
 Run `node scripts/sync-shopify-content.mjs` to create the informational pages and
 keep the main and footer navigation aligned with the Zeieli catalog.

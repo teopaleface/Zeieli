@@ -14,7 +14,7 @@
       "settings": {
         "eyebrow": "Bine ai venit la Zeieli",
         "heading": "Ținute pentru zilele tale.",
-        "text": "<p>Rochii și costume de baie ușor de purtat, pentru vacanță și fiecare zi.</p>",
+        "text": "<p>Rochii, compleuri și pantaloni ușor de purtat, pentru fiecare zi.</p>",
         "button_label": "Vezi colecția",
         "button_link": "#produse",
         "benefit_one": "Modele ușor de purtat",
@@ -25,8 +25,8 @@
     "zeieli_products": {
       "type": "zeieli-products",
       "settings": {
-        "heading": "Colecția de vară",
-        "collection": "colectia-de-vara",
+        "heading": "Produse noi",
+        "collection": "catalog-zeieli",
         "product_limit": 12
       }
     }

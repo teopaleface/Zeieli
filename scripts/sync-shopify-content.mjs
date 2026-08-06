@@ -148,7 +148,7 @@ const pageSpecs = [
     title: "Despre Zeieli",
     body: `
       <h2>Ținute pentru zile adevărate</h2>
-      <p>Zeieli este un magazin online cu rochii și costume de baie ușor de purtat, alese pentru vacanță, oraș și zilele obișnuite.</p>
+      <p>Zeieli este un magazin online cu rochii, compleuri și pantaloni ușor de purtat, pentru oraș și zilele obișnuite.</p>
       <p>Ne concentrăm pe o selecție simplă, mărimi explicate clar și o experiență de cumpărare fără complicații. Pentru întrebări despre produse sau comenzi, ne poți scrie la <a href="mailto:marketelanora@gmail.com">marketelanora@gmail.com</a>.</p>
     `.trim(),
   },
@@ -180,7 +180,10 @@ const pageSpecs = [
 ];
 
 const pages = {};
-for (const page of pageSpecs) pages[page.handle] = await ensurePage(page);
+for (const page of pageSpecs) {
+  const existingOrCreated = await ensurePage(page);
+  pages[page.handle] = await updatePage(existingOrCreated.id, { ...page, isPublished: true });
+}
 pages.contact = await findPage("contact");
 pages["ghid-marimi"] = await findPage("ghid-marimi");
 if (!pages.contact || !pages["ghid-marimi"]) {
@@ -197,13 +200,17 @@ pages.contact = await updatePage(pages.contact.id, {
   templateSuffix: "contact",
 });
 
+const catalog = await findCollection("catalog-zeieli");
 const dresses = await findCollection("rochii");
-const swimwear = await findCollection("costume-de-baie");
+const sets = await findCollection("compleuri");
+const trousers = await findCollection("pantaloni");
 
 await updateMenu("main-menu", "Meniu principal", [
   { title: "Acasă", type: "FRONTPAGE" },
+  { title: "Catalog", type: "COLLECTION", resourceId: catalog.id },
   { title: "Rochii", type: "COLLECTION", resourceId: dresses.id },
-  { title: "Costume de baie", type: "COLLECTION", resourceId: swimwear.id },
+  { title: "Compleuri", type: "COLLECTION", resourceId: sets.id },
+  { title: "Pantaloni", type: "COLLECTION", resourceId: trousers.id },
   { title: "Ghid de mărimi", type: "PAGE", resourceId: pages["ghid-marimi"].id },
   { title: "Contact", type: "PAGE", resourceId: pages.contact.id },
 ]);

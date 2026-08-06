@@ -7,6 +7,17 @@ import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const envPath = path.join(root, ".env.zeieli.local");
 const catalogPath = path.join(root, "catalog", "zeieli-products.json");
+const shouldArchiveRetired = process.argv.includes("--archive-retired");
+const shouldDeleteRetired = process.argv.includes("--delete-retired");
+const retiredHandles = [
+  "costum-tankini-sofia",
+  "costum-tankini-marina",
+  "costum-baie-intreg-elena",
+  "rochie-baie-amalia",
+  "rochie-maxi-alba-adriana",
+  "rochie-midi-catalina",
+  "rochie-midi-daria",
+];
 
 function readEnv(file) {
   return Object.fromEntries(
@@ -146,19 +157,24 @@ if (!location || !onlineStore) throw new Error("Locația sau publicația Online 
 
 const collectionSpecs = [
   {
-    handle: "colectia-de-vara",
-    title: "Colecția de vară",
-    descriptionHtml: "<p>Rochii și costume de baie pentru zilele petrecute la soare.</p>",
+    handle: "catalog-zeieli",
+    title: "Catalog Zeieli",
+    descriptionHtml: "<p>Rochii, compleuri și pantaloni pentru ținute de zi.</p>",
   },
   {
     handle: "rochii",
     title: "Rochii",
-    descriptionHtml: "<p>Rochii lejere pentru vacanță și fiecare zi.</p>",
+    descriptionHtml: "<p>Rochii cu imprimeuri și croieli ușor de purtat.</p>",
   },
   {
-    handle: "costume-de-baie",
-    title: "Costume de baie",
-    descriptionHtml: "<p>Modele întregi și tankini cu croieli confortabile.</p>",
+    handle: "compleuri",
+    title: "Compleuri",
+    descriptionHtml: "<p>Ținute coordonate din două piese.</p>",
+  },
+  {
+    handle: "pantaloni",
+    title: "Pantaloni",
+    descriptionHtml: "<p>Pantaloni casual pentru ținute de zi.</p>",
   },
 ];
 const collections = {};
@@ -183,7 +199,7 @@ for (const product of products) {
     continue;
   }
 
-  const imageSource = await stageImage(path.join(root, product.image));
+  const imageSource = await stageImage(path.resolve(root, product.image));
   const productOptions = [
     {
       name: "Mărime",
@@ -210,7 +226,7 @@ for (const product of products) {
         descriptionHtml: product.descriptionHtml,
         vendor: "Zeieli",
         productType: product.productType,
-        tags: ["Zeieli", "Colecția de vară", product.productType],
+        tags: ["Zeieli", "Catalog Zeieli", product.productType],
         status: "ACTIVE",
         collectionsToJoin: product.collections.map((handle) => collections[handle].id),
         productOptions,
@@ -282,6 +298,39 @@ for (const product of products) {
   );
   assertUserErrors(`Publicarea ${product.title}`, published.publishablePublish.userErrors);
   console.log(`Produs creat: ${product.title} (${variants.length} variante, stoc 0)`);
+}
+
+if (shouldArchiveRetired || shouldDeleteRetired) {
+  for (const handle of retiredHandles) {
+    const product = await findProduct(handle);
+    if (!product) continue;
+
+    if (shouldDeleteRetired) {
+      const deleted = await graphql(
+        `mutation DeleteProduct($input: ProductDeleteInput!) {
+          productDelete(input: $input) {
+            deletedProductId
+            userErrors { field message }
+          }
+        }`,
+        { input: { id: product.id } },
+      );
+      assertUserErrors(`Ștergerea ${product.title}`, deleted.productDelete.userErrors);
+      console.log(`Produs șters: ${product.title}`);
+    } else {
+      const archived = await graphql(
+        `mutation ArchiveProduct($product: ProductUpdateInput!) {
+          productUpdate(product: $product) {
+            product { id handle title status }
+            userErrors { field message }
+          }
+        }`,
+        { product: { id: product.id, status: "ARCHIVED" } },
+      );
+      assertUserErrors(`Arhivarea ${product.title}`, archived.productUpdate.userErrors);
+      console.log(`Produs arhivat: ${product.title}`);
+    }
+  }
 }
 
 console.log("Sincronizarea catalogului Zeieli s-a încheiat.");
