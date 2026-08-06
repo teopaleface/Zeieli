@@ -2,25 +2,25 @@
   assign preview_index = index | modulo: 4
   case preview_index
     when 1
-      assign preview_image = 'zeieli-product-black-dress.jpg'
-      assign preview_title = 'Rochie midi pentru orice zi'
-      assign preview_price = '239,00 lei'
-      assign preview_compare = '379,00 lei'
+      assign preview_image = 'zeieli-product-black-swimdress-v2.jpg'
+      assign preview_title = 'Rochie de baie cu inserții transparente'
+      assign preview_price = '189,90 lei'
+      assign preview_compare = blank
     when 2
       assign preview_image = 'zeieli-product-white-resort-dress.jpg'
       assign preview_title = 'Rochie albă vaporoasă'
-      assign preview_price = '209,00 lei'
-      assign preview_compare = '339,00 lei'
+      assign preview_price = '219,90 lei'
+      assign preview_compare = blank
     when 3
       assign preview_image = 'zeieli-product-terracotta-tiered-dress.jpg'
       assign preview_title = 'Rochie în nuanță de teracotă'
-      assign preview_price = '219,00 lei'
-      assign preview_compare = '359,00 lei'
+      assign preview_price = '199,90 lei'
+      assign preview_compare = blank
     else
       assign preview_image = 'zeieli-product-floral-tiered-dress.jpg'
       assign preview_title = 'Rochie înflorată cu volane'
-      assign preview_price = '229,00 lei'
-      assign preview_compare = '369,00 lei'
+      assign preview_price = '189,90 lei'
+      assign preview_compare = blank
   endcase
 %}
 
@@ -38,7 +38,7 @@
   <h3>{{ preview_title }}</h3>
   <div class="zeieli-preview-card__price">
     <span>{{ preview_price }}</span>
-    <s>{{ preview_compare }}</s>
+    {% if preview_compare != blank %}<s>{{ preview_compare }}</s>{% endif %}
   </div>
   <button type="button" disabled>Adaugă în coș</button>
 </article>

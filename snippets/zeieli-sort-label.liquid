@@ -1,0 +1,24 @@
+{% liquid
+  case value
+    when 'manual'
+      echo 'Recomandate'
+    when 'best-selling'
+      echo 'Cele mai vândute'
+    when 'title-ascending'
+      echo 'Denumire: A–Z'
+    when 'title-descending'
+      echo 'Denumire: Z–A'
+    when 'price-ascending'
+      echo 'Preț: crescător'
+    when 'price-descending'
+      echo 'Preț: descrescător'
+    when 'created-ascending'
+      echo 'Data: de la vechi la nou'
+    when 'created-descending'
+      echo 'Data: de la nou la vechi'
+    when 'relevance', 'most-relevant'
+      echo 'Relevanță'
+    else
+      echo fallback
+  endcase
+%}

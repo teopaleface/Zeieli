@@ -1,0 +1,93 @@
+[
+  {
+    "handle": "costum-tankini-sofia",
+    "title": "Costum Tankini Sofia cu Pantaloni Scurți",
+    "productType": "Costume de baie",
+    "collections": ["colectia-de-vara", "costume-de-baie"],
+    "price": "179.90",
+    "image": "assets/zeieli-product-purple-floral-set.jpg",
+    "imageAlt": "Femeie purtând costumul tankini Sofia în nuanță lila",
+    "colors": ["Lila", "Negru", "Albastru"],
+    "sizes": ["M", "L", "XL", "2XL", "3XL", "4XL"],
+    "skuPrefix": "ZEI-SOF",
+    "descriptionHtml": "<p>Costum de baie din două piese, cu top lejer și pantaloni scurți cu imprimeu floral. Croiala acoperită este potrivită pentru plajă, piscină și zilele petrecute la apă.</p><ul><li>top cu bretele subțiri;</li><li>pantaloni scurți cu talie comodă;</li><li>croială lejeră în zona abdomenului;</li><li>mai multe variante de culoare.</li></ul><p><strong>Alege mărimea după măsurătorile din ghid.</strong> Culorile pot varia ușor în funcție de ecran.</p>"
+  },
+  {
+    "handle": "costum-tankini-marina",
+    "title": "Costum Tankini Marina cu Imprimeu Lateral",
+    "productType": "Costume de baie",
+    "collections": ["colectia-de-vara", "costume-de-baie"],
+    "price": "189.90",
+    "image": "assets/zeieli-product-black-turquoise-set.jpg",
+    "imageAlt": "Femeie purtând costumul tankini Marina negru cu detalii turcoaz",
+    "colors": ["Negru multicolor", "Turcoaz"],
+    "sizes": ["M", "L", "XL", "2XL", "3XL", "4XL"],
+    "skuPrefix": "ZEI-MAR",
+    "descriptionHtml": "<p>Tankini din două piese, cu top lung și pantaloni scurți. Panourile laterale imprimate conturează vizual ținuta, iar croiala rămâne practică pentru mișcare.</p><ul><li>top lung fără mâneci;</li><li>pantaloni scurți asortați;</li><li>decolteu rotund;</li><li>imprimeu lateral contrastant.</li></ul><p><strong>Alege mărimea după măsurătorile din ghid.</strong> Poziționarea imprimeului poate varia ușor.</p>"
+  },
+  {
+    "handle": "costum-baie-intreg-elena",
+    "title": "Costum de Baie Întreg Elena",
+    "productType": "Costume de baie",
+    "collections": ["colectia-de-vara", "costume-de-baie"],
+    "price": "169.90",
+    "image": "assets/zeieli-product-black-one-piece.jpg",
+    "imageAlt": "Femeie purtând costumul de baie întreg Elena, negru",
+    "colors": ["Negru"],
+    "sizes": ["M", "L", "XL", "2XL", "3XL", "4XL"],
+    "skuPrefix": "ZEI-ELE",
+    "descriptionHtml": "<p>Costum de baie întreg negru, cu linii simple și inserții transparente așezate diagonal în zona taliei. Un model ușor de purtat la piscină sau în vacanță.</p><ul><li>bretele subțiri;</li><li>croială întreagă;</li><li>inserții transparente în talie;</li><li>spate drept.</li></ul><p><strong>Alege mărimea după măsurătorile din ghid.</strong></p>"
+  },
+  {
+    "handle": "rochie-baie-amalia",
+    "title": "Rochie de Baie Amalia cu Inserții Transparente",
+    "productType": "Costume de baie",
+    "collections": ["colectia-de-vara", "costume-de-baie"],
+    "price": "189.90",
+    "image": "assets/zeieli-product-black-swimdress-v2.jpg",
+    "imageAlt": "Femeie purtând rochia de baie Amalia, neagră, cu inserții transparente",
+    "colors": ["Negru"],
+    "sizes": ["M", "L", "XL", "2XL", "3XL", "4XL"],
+    "skuPrefix": "ZEI-AMA",
+    "descriptionHtml": "<p>Rochie de baie neagră cu bază întreagă, inserție transparentă în talie și fustă scurtă din plasă. Șnururile laterale permit ajustarea drapajului.</p><ul><li>bază de costum de baie întreg;</li><li>bretele subțiri;</li><li>fustă scurtă transparentă;</li><li>șnururi de ajustare pe laterale.</li></ul><p><strong>Produs pentru plajă și piscină, nu rochie casual.</strong> Alege mărimea după ghid.</p>"
+  },
+  {
+    "handle": "rochie-maxi-alba-adriana",
+    "title": "Rochie Maxi Albă Adriana",
+    "productType": "Rochii",
+    "collections": ["colectia-de-vara", "rochii"],
+    "price": "219.90",
+    "image": "assets/zeieli-product-white-resort-dress.jpg",
+    "imageAlt": "Femeie purtând rochia maxi albă Adriana",
+    "colors": ["Alb"],
+    "sizes": ["M", "L", "XL", "2XL", "3XL", "4XL"],
+    "skuPrefix": "ZEI-ADR",
+    "descriptionHtml": "<p>Rochie maxi albă, cu croială amplă, mâneci scurte și decolteu tip cămașă. Un model relaxat pentru vacanță, promenadă și zile călduroase.</p><ul><li>lungime maxi;</li><li>croială lejeră;</li><li>mâneci scurte cu manșetă;</li><li>șlițuri laterale.</li></ul><p>Albul poate avea un grad de transparență în lumină puternică; recomandăm lenjerie în nuanța pielii. Alege mărimea după ghid.</p>"
+  },
+  {
+    "handle": "rochie-midi-catalina",
+    "title": "Rochie Midi Catalina cu Talie Elastică",
+    "productType": "Rochii",
+    "collections": ["colectia-de-vara", "rochii"],
+    "price": "199.90",
+    "image": "assets/zeieli-product-terracotta-tiered-dress.jpg",
+    "imageAlt": "Femeie purtând rochia midi Catalina în nuanță teracotă",
+    "colors": ["Teracotă", "Bleumarin"],
+    "sizes": ["M", "L", "XL", "2XL", "3XL", "4XL"],
+    "skuPrefix": "ZEI-CAT",
+    "descriptionHtml": "<p>Rochie midi cu decolteu în V, mâneci scurte și talie elastică. Fusta în trepte păstrează o linie lejeră și ușor de asortat.</p><ul><li>decolteu în V;</li><li>talie elastică;</li><li>mâneci scurte;</li><li>fustă midi în trepte.</li></ul><p>Disponibilă în teracotă și bleumarin. Alege mărimea după măsurătorile din ghid.</p>"
+  },
+  {
+    "handle": "rochie-midi-daria",
+    "title": "Rochie Midi Daria cu Imprimeu Colorat",
+    "productType": "Rochii",
+    "collections": ["colectia-de-vara", "rochii"],
+    "price": "189.90",
+    "image": "assets/zeieli-product-floral-tiered-dress.jpg",
+    "imageAlt": "Femeie purtând rochia midi Daria cu imprimeu multicolor",
+    "colors": ["Multicolor", "Mov floral"],
+    "sizes": ["M", "L", "XL", "2XL", "3XL", "4XL"],
+    "skuPrefix": "ZEI-DAR",
+    "descriptionHtml": "<p>Rochie midi lejeră, cu decolteu în V, mâneci până la cot și imprimeu expresiv. Croiala amplă și tivul în trepte sunt potrivite pentru ținute relaxate de vară.</p><ul><li>decolteu în V;</li><li>mâneci lejere până la cot;</li><li>croială amplă;</li><li>tiv în trepte.</li></ul><p>Poziționarea imprimeului poate varia de la un produs la altul. Alege mărimea după ghid.</p>"
+  }
+]

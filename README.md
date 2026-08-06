@@ -20,14 +20,28 @@ and locations from the ÉLANORA imagery:
 - `assets/zeieli-product-purple-floral-set.jpg`
 - `assets/zeieli-product-black-turquoise-set.jpg`
 - `assets/zeieli-product-black-one-piece.jpg`
-- `assets/zeieli-product-black-dress.jpg`
+- `assets/zeieli-product-black-swimdress-v2.jpg`
 - `assets/zeieli-product-white-resort-dress.jpg`
 - `assets/zeieli-product-terracotta-tiered-dress.jpg`
 - `assets/zeieli-product-floral-tiered-dress.jpg`
 
-The files are ready for product media upload once the Shopify catalog receives
-validated product names, variants, prices and stock. The theme does not create
-placeholder products or invent commercial data.
+## Shopify automation
+
+`catalog/zeieli-products.json` is the source of truth for the initial seven-product
+Zeieli catalog. Run `node scripts/sync-shopify-catalog.mjs` to create missing
+collections, upload product media, create size/color variants, and publish the
+products to the Online Store.
+
+The script is idempotent by product handle. Initial variant inventory is always
+zero and tracked, so a product cannot be sold before real stock is entered in
+Shopify. Compare-at prices are intentionally omitted until a legitimate reference
+price exists.
+
+Run `node scripts/sync-shopify-content.mjs` to create the informational pages and
+keep the main and footer navigation aligned with the Zeieli catalog.
+
+Both scripts read credentials from the ignored `.env.zeieli.local` file. The
+theme does not create placeholder products or invent commercial data.
 
 ## Storefront coverage
 
@@ -42,4 +56,6 @@ shopify theme check --path .
 shopify theme push --store gejd27-6s.myshopify.com --path . --theme <theme-id>
 ```
 
-The current live Shopify theme is `207579054429` on `gejd27-6s.myshopify.com`; storefront QA has been completed for desktop and mobile. The generated product images remain ready for media upload once the catalog receives validated product names, variants, prices and stock. Never commit credentials, Admin API tokens or private environment files.
+The current live Shopify theme is `207579054429` on
+`gejd27-6s.myshopify.com`. Never commit credentials, Admin API tokens or private
+environment files.

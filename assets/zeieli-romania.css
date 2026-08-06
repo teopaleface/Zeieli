@@ -336,7 +336,7 @@ a {
 }
 
 .section-resource-list .card-gallery {
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 5;
   background: var(--zeieli-surface);
   border: 0;
   border-radius: 4px;
@@ -550,7 +550,7 @@ a {
 }
 
 .zeieli-product-card__media {
-  aspect-ratio: 1;
+  aspect-ratio: 4 / 5;
   background: var(--zeieli-surface);
   border-radius: 4px;
   display: block;
