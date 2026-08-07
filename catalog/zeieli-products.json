@@ -17,19 +17,38 @@
   },
   {
     "handle": "rochie-albastra-cu-imprimeu-floral",
-    "title": "Rochie Albastră cu Imprimeu Floral",
+    "title": "Rochie cu Imprimeu Floral",
     "productType": "Rochii",
     "collections": ["catalog-zeieli", "rochii"],
     "price": "179.90",
     "priceStatus": "temporary",
+    "syncMetadata": true,
     "image": "catalog/images/rochie-albastra-florala.png",
+    "variantImages": {
+      "Albastru floral": {
+        "image": "catalog/images/rochie-albastra-florala.png",
+        "alt": "Rochie cu imprimeu floral în varianta albastră, purtată în aer liber"
+      },
+      "Albă": {
+        "image": "catalog/images/rochie-alba-florala.png",
+        "alt": "Rochie cu imprimeu floral în varianta albă, purtată în aer liber"
+      }
+    },
+    "skuCodes": {
+      "Albă": "ALB-W"
+    },
     "referenceImage": "../Produse/WhatsApp Image 2026-08-04 at 22.28.53 (2).jpeg",
-    "imageAlt": "Rochie albastră până la genunchi cu imprimeu floral",
+    "imageAlt": "Rochie până la genunchi cu imprimeu floral",
     "catalogImageAlt": "Fotografie de catalog cu rochie albastră și imprimeu floral",
-    "colors": ["Albastru floral"],
+    "retiredImageAlts": [
+      "Fotografie de catalog cu rochie albastră și imprimeu floral",
+      "Rochie albastră până la genunchi cu imprimeu floral"
+    ],
+    "lifestyleImageAlt": "Rochie cu imprimeu floral în varianta albastră, purtată în aer liber",
+    "colors": ["Albastru floral", "Albă"],
     "sizes": ["L", "XL", "2XL", "3XL", "4XL"],
     "skuPrefix": "ZEI-RAF",
-    "descriptionHtml": "<p>Rochie albastră cu imprimeu floral, mâneci scurte și tiv cu volan plisat. Croiala lejeră este potrivită pentru ținute de zi și ocazii relaxate.</p><ul><li>lungime până la genunchi;</li><li>mâneci scurte cu șnur decorativ;</li><li>decolteu rotund cu mică deschidere;</li><li>tiv cu volan plisat.</li></ul><p>Poziționarea imprimeului poate varia. Alege mărimea după ghid.</p>"
+    "descriptionHtml": "<p>Rochie cu imprimeu floral, disponibilă în variantele albastră și albă, cu mâneci scurte și tiv cu volan plisat. Croiala lejeră este potrivită pentru ținute de zi și ocazii relaxate.</p><ul><li>două variante de culoare;</li><li>lungime până la genunchi;</li><li>mâneci scurte cu șnur decorativ;</li><li>decolteu rotund cu mică deschidere;</li><li>tiv cu volan plisat.</li></ul><p>Poziționarea imprimeului poate varia. Alege mărimea după ghid.</p>"
   },
   {
     "handle": "pantaloni-denim-cu-talie-elastica",
